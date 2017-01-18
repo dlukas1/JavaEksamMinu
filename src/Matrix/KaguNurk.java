@@ -35,7 +35,7 @@ public class KaguNurk {
 
     public static int numbrid(int i, int j) {
         int cifra;
-        
+
         if(i == 0 || j == 0) {
             cifra = 9-i-j;
         }

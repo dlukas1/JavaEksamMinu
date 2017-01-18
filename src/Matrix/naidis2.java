@@ -2,8 +2,8 @@ package Matrix;
 
 import java.util.Random;
 
-/**
- * Created by Dmitry on 18.01.2017.
+/*
+Программа создает матрицу 5 х 7, заполняет случайными числами и находит наименьший элемент в каждом ряду
  */
 public class naidis2 {
     public static void main(String[] args) {
