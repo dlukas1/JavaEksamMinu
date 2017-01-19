@@ -16,7 +16,6 @@ public class KuulusNumber {
      */
     public static void main(String[] args) {
         int[] mass = {1,2,3,4,4,5,6,7,7,7,7,9,8};
-
         //sorteerime massiivi suurenemise jargi
         Arrays.sort(mass);
 
@@ -29,7 +28,6 @@ public class KuulusNumber {
             {   //kogu loogika toimib kui i != 3, kui i == 3 ei lahe arvesse
             if (mass[i] !=3 )
             {
-
                 //Kui praegune liige == jargmisele - lisame frq
                 if (mass[i] == mass [i+1]){
                     frequentNum = mass[i];
@@ -39,7 +37,6 @@ public class KuulusNumber {
                 if (frq >  max_frq) {
                 max_frq = frq;
                 frequentNum = mass[i];
-
             }
         }
         System.out.println("Number " + frequentNum + " ilmub " + max_frq + " korda ");
