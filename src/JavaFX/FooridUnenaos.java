@@ -54,7 +54,7 @@ public class FooridUnenaos extends Application {
 
             });
         }
-        
+
 
         primaryStage.show();
 

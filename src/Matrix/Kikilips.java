@@ -37,7 +37,7 @@ public class Kikilips {
     }
      public static char numbrid(int i, int j){
          char cifra;
-         if (i == j || i + j == 8 ){
+         if (i >= j || i + j >= 8 ){
              cifra = '0';
          }
 
