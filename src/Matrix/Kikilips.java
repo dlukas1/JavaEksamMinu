@@ -57,7 +57,7 @@ public class Kikilips {
         }
 
         }
-        for (i=arr.length-1; i>=arr.length/2+1; i--){
+        for (i=arr.length-1; i>=arr.length/2+1(тут возможно надо убрать +"1"); i--){
               for (j=0; j<arr[i].length; j++){
                 if ((j<(arr[i].length-1-i)) || (j>i))
                   arr[i][j]=0;
