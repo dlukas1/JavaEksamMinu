@@ -1,9 +1,13 @@
 package JavaFX;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
@@ -20,47 +24,56 @@ public class Joon extends Application{
         Scene scene = new Scene(stack, 500, 500);
         primaryStage.setScene(scene);
 
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("X alg:");
-        int Xalg = sc.nextInt();
-        System.out.println("Yalg:");
-        int Yalg = sc.nextInt();
-        System.out.println("X lopp:");
-        int Xlopp = sc.nextInt();
-        System.out.println("Ylopp:");
-        int Ylopp = sc.nextInt();
-
-/*
-TextField xa = new TextField("X alg");
+        TextField xa = new TextField("X alg");
         TextField ya = new TextField("Y alg");
         TextField xl = new TextField("X lopp");
         TextField yl = new TextField("Y lopp");
+        Button btn = new Button("Joonista");
 
-        xa.setTranslateY(40);
-        xl.setTranslateY(00);
-        ya.setTranslateY(20);
-        yl.setTranslateY(-20);
-        stack.getChildren().addAll(xa,ya,xl, yl);
+        xa.setTranslateY(-80);
+        xl.setTranslateY(-50);
+        ya.setTranslateY(-20);
+        yl.setTranslateY(10);
+        btn.setTranslateY(50);
+        stack.getChildren().addAll(xa,ya,xl, yl, btn);
+
+        primaryStage.show();
+        scene.setOnKeyPressed(event -> {
+            KeyCode code = event.getCode();
+            if (code == KeyCode.ENTER) {
+                btn.fire();
+            }
+        });
+
+
+
+
+btn.setOnAction(new EventHandler<ActionEvent>() {
+    @Override
+    public void handle(ActionEvent event) {
+
+
 
         int Xalg = Integer.parseInt(xa.getText());
         int Yalg = Integer.parseInt(ya.getText());
         int Xlopp = Integer.parseInt(xl.getText());
         int Ylopp = Integer.parseInt(yl.getText());
- */
 
+        stack.getChildren().removeAll(xa,ya,yl,yl,btn);
 
 
         Line line = new Line();
 
-                line.setStartX(Xalg);
-                line.setStartY(Yalg);
-                line.setEndX(Xlopp);
-                line.setEndY(Ylopp);
+        line.setStartX(Xalg);
+        line.setStartY(Yalg);
+        line.setEndX(Xlopp);
+        line.setEndY(Ylopp);
 
-                stack.getChildren().add(line);
+        stack.getChildren().add(line);
+    }
+});
 
-        primaryStage.show();
+
             }
 
         }
