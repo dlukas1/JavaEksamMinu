@@ -37,10 +37,16 @@ public class Kikilips {
     }
      public static char numbrid(int i, int j){
          char cifra;
-         if (i >= j || i + j >= 8 ){
+
+         if (i == j || i + j == 8 ){
              cifra = '0';
          }
+         else {
+             cifra = '.';
+         }
+         return cifra;
 
+     }
          /*
           Алгоритм вроде понятен. i - номер текущей строки, начиная с нуля.
           Заполняешь элементы нулями, если их номер < i и >= n-1 , где n - количество столбцов.
@@ -66,11 +72,7 @@ public class Kikilips {
         }
           */
 
-         else {
-             cifra = '.';
-         }
-         return cifra;
-     }
+
     // Lihtsalt abiline meetod, et maatriksit välja printida
     private static void printMaatriks(char[][] laud) {
         for (int i = 0; i < laud.length; i++) {
