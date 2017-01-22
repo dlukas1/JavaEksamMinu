@@ -1,17 +1,17 @@
 package OOP;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+
 
 public class Chat {
 
 String roomName;
-HashMap <String, String> chatData = new HashMap<>();
-    int i = 1;
-
+ArrayList chatData = new ArrayList();
+    int i = 0;
 
     public  void  sisestaSonum (String nimi, String sonum) {
 
-    chatData.put(i + nimi,sonum);
+    chatData.add(i, nimi + ": " + sonum);
         i++;
     }
 
@@ -19,13 +19,16 @@ HashMap <String, String> chatData = new HashMap<>();
         this. roomName = toaNimi;
     }
 
-    public  void prindiKoikSonumidKoosKasutajanimega(){
-        System.out.println(chatData);
+    public  void prindiKoikSonumidKoosKasutajanimega() {
+        chatData.stream().forEach(System.out::println);
     }
 
-    public void adminKustutabSonumi(String sonum){
-        chatData.remove(sonum);
+
+    public void adminKustutabSonumi(String erase){
+
+        chatData.remove(erase );
 }
+
     public void prindiToaNimi(){
     System.out.println(roomName);
 }
