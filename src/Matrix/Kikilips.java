@@ -35,18 +35,31 @@ public class Kikilips {
         }
         printMaatriks(matrix);
     }
+    /*
+    Можно поделить поле на 4 квадрата и для каждого рисовать по половине
+     */
      public static char numbrid(int i, int j){
-         char cifra;
+         char cifra ;
+
+
 
          if (i == j || i + j == 8 ){
+
+          cifra = '0';
+         }
+         else if ( j==0 || j ==8){
              cifra = '0';
          }
-         else {
+         else if (j>i){
              cifra = '.';
+         }else {
+             cifra = 0;
          }
          return cifra;
+            }
 
-     }
+
+
          /*
           Алгоритм вроде понятен. i - номер текущей строки, начиная с нуля.
           Заполняешь элементы нулями, если их номер < i и >= n-1 , где n - количество столбцов.
