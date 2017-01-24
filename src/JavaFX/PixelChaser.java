@@ -35,7 +35,7 @@ public class PixelChaser extends Application{
 
             stack.getChildren().add(rectangle);
 
-            //два EventHandler - при первом нажатии уменьшает в 2 разаб при втором - тсчезает
+            //два EventHandler - при первом нажатии уменьшает в 2 разаб при втором - исчезает
             rectangle.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {

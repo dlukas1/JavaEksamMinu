@@ -23,8 +23,8 @@ public class SlidingCircle extends Application {
     final Slider sliderX = new Slider(0, 250, 50);
     final Slider sliderY = new Slider(0, 250, 50);
 
-    int x = 0;
-    int y = 0;
+    int x = 50;
+    int y = 50;
     final Ellipse ellipse = new Ellipse(x, y);
 
     @Override
@@ -50,12 +50,22 @@ public class SlidingCircle extends Application {
 
             ellipse.setRadiusX(x);
 
+            if (x>200){
+                ellipse.setFill(Color.GREEN);
+            }else {
+                ellipse.setFill(Color.RED);
+            }
         });
 
         sliderY.valueProperty().addListener((observable, vanaVaartus, uusVaartusY) -> {
             y = uusVaartusY.intValue();
             System.out.println(uusVaartusY.intValue());
             ellipse.setRadiusY(y);
+            if (y>100){
+                ellipse.setFill(Color.YELLOW);
+            }else {
+                ellipse.setFill(Color.RED);
+            }
         });
         stack.getChildren().addAll(sliderX, sliderY, ellipse);
         }
