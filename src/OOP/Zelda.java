@@ -10,6 +10,7 @@ public class Zelda {
     public void kaklusKolliga(int kollilElusid){
         elud = elud = kollilElusid;
     }
+
     public void prindiMituEluAlles (){
         System.out.println("On jaanud " + elud + " elusid");
     }
