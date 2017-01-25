@@ -24,24 +24,9 @@ public class Detektiiv extends Application{
         Scene scene = new Scene(stack, 500, 500);
         primaryStage.setScene(scene);
         for (int i = 0; i <3 ; i++) {
-            double xAlg = Math.round(Math.random() * 10);
-            double yAlg = Math.round(Math.random() * 10);
-            System.out.println("x alg = " + xAlg);
-            System.out.println("y alg = " + yAlg);
-            double x = 0;
-            double y = 0;
-            if (xAlg%2 == 0) {
-                x = xAlg*(-25);
-            }else  {
-                x = xAlg * 25;
-            }
+            double x = ((Math.random() * 500)-250);
+            double y = ((Math.random() * 500)-250);
 
-            if (yAlg%2 == 0) {
-                y = yAlg*(-25);
-            }
-            else {
-                y = yAlg * 25;
-            }
             Circle ring = new Circle(30);
             ring.setTranslateX(x);
             ring.setTranslateY(y);
