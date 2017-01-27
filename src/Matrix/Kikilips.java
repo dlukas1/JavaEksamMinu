@@ -43,16 +43,15 @@ public class Kikilips {
 
 
 
-         if (i == j || i + j == 8 ){
+         if (i >= j && i + j <9 ){
 
           cifra = '0';
          }
-         else if ( j==0 || j ==8){
+         else if ( i<=j && i+j>=8){
              cifra = '0';
          }
-         else if (j>i){
-             cifra = '.';
-         }else {
+
+         else {
              cifra = 0;
          }
          return cifra;
@@ -91,6 +90,6 @@ public class Kikilips {
         for (int i = 0; i < laud.length; i++) {
             System.out.println(Arrays.toString(laud[i]));
         }
-        System.out.println("");
+        System.out.println("               ");
     }
 }
