@@ -20,13 +20,6 @@ import static sun.security.krb5.Confounder.intValue;
 
 public class SlidingCircle extends Application {
 
-    final Slider sliderX = new Slider(0, 250, 50);
-    final Slider sliderY = new Slider(0, 250, 50);
-
-    int x = 50;
-    int y = 50;
-    final Ellipse ellipse = new Ellipse(x, y);
-
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -35,39 +28,7 @@ public class SlidingCircle extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-
-        sliderX.setOrientation(Orientation.HORIZONTAL);
-        sliderY.setOrientation(Orientation.VERTICAL);
-        sliderX.setTranslateY(-230);
-        sliderY.setTranslateX(230);
-        /*
-        int x;int y;
-         */
-
-        sliderX.valueProperty().addListener((observable, vanaVaartus, uusVaartusX) -> {
-            x = uusVaartusX.intValue();
-            System.out.println(uusVaartusX.intValue());
-
-            ellipse.setRadiusX(x);
-
-            if (x>200){
-                ellipse.setFill(Color.GREEN);
-            }else {
-                ellipse.setFill(Color.RED);
-            }
-        });
-
-        sliderY.valueProperty().addListener((observable, vanaVaartus, uusVaartusY) -> {
-            y = uusVaartusY.intValue();
-            System.out.println(uusVaartusY.intValue());
-            ellipse.setRadiusY(y);
-            if (y>100){
-                ellipse.setFill(Color.YELLOW);
-            }else {
-                ellipse.setFill(Color.RED);
-            }
-        });
-        stack.getChildren().addAll(sliderX, sliderY, ellipse);
+        SliCirOOP slidingcircle = new SliCirOOP(stack);
         }
     }
 
