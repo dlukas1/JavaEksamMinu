@@ -18,7 +18,7 @@ public class KasutajaLiides {
         looKasutajaLiides();
         joonistaJoon();
     }
-    
+
     private void looKasutajaLiides(){
         submit.setTranslateY(25);
     }
