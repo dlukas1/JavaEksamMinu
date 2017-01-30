@@ -1,12 +1,9 @@
-package JavaFX;
+package Eksam;
 
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 public class JoonOOP extends Application{

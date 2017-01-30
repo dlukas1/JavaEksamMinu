@@ -1,4 +1,4 @@
-package JavaFX;
+package Eksam;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

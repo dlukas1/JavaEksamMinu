@@ -1,19 +1,23 @@
-package JavaFX;
+package Eksam;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class PalgaVara extends Application {
+public class AutoLiikumine extends Application {
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Pane pane = new Pane();
-        Scene scene = new Scene(pane, 500,500);
+
+        GridPane pane = new GridPane();
+        Scene scene = new Scene(pane,550,200);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        PalgaEngine palgaEngine = new PalgaEngine(pane);
+        Ristmik ristmik = new Ristmik (pane);
+
     }
 }

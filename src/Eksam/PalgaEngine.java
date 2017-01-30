@@ -1,4 +1,4 @@
-package JavaFX;
+package Eksam;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -51,7 +51,7 @@ public class PalgaEngine {
                 String []sis = sisestatud.split(",");
                 String nimi = sis[0];
                 int hind = Integer.parseInt(sis[1]);
-                
+
                 if (palk > hind) {
                     sum = sum + hind;
                     if (sum>palk){
