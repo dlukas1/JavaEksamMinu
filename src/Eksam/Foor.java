@@ -10,17 +10,17 @@ import javafx.util.Duration;
 
 public class Foor {
 
+    //У класса Фоор есть след параметры:
     Pane pane;
     Circle pun = new Circle(50);
     Circle kol = new Circle(50);
     Circle roh = new Circle(50);
 
+    //Надо добавить расположение на гридпайне
     public Foor(Pane panes)
     {
         pane = panes;
         looFoor();
-
-
     }
 
     private  void looFoor(){
@@ -39,6 +39,10 @@ public class Foor {
         startFoor();
     }
 
+
+    //Методы для смены цвета: KeyFrame указывает через сколько времени должно произойти след действие
+     //flashRed.setCycleCount(1); - сколько циклов
+    //flashRed.play();
     private void vahetaPunaseks (){
         pun.setFill(Color.RED);
         kol.setFill(Color.BLACK);
@@ -102,6 +106,7 @@ public class Foor {
         flashGreen.play();
     }
 
+    //startFoor - управляет циклами смены цветов
     private void startFoor (){
         Timeline foor = new Timeline(
                 new KeyFrame(Duration.seconds(0), e-> {
@@ -121,15 +126,7 @@ public class Foor {
                     startFoor();
 
                 })
-
-
         );foor.setCycleCount(1);
         foor.play();
     }
-
-
-
-
-
-
 }
