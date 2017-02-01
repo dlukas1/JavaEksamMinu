@@ -2,6 +2,7 @@ package Eksam;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -12,31 +13,109 @@ public class Foor {
 
     //У класса Фоор есть след параметры:
     Pane pane;
-    Circle pun = new Circle(50);
-    Circle kol = new Circle(50);
-    Circle roh = new Circle(50);
+    Circle pun = new Circle(30);
+    Circle kol = new Circle(30);
+    Circle roh = new Circle(30);
+    int xPun, xRoh,xKol, laius,korgus, xAlg, yAlg;
+    int yPun, yRoh,yKol;
 
-    //Надо добавить расположение на гридпайне
+
+
+
+
     public Foor(Pane panes)
     {
         pane = panes;
-        looFoor();
+
+
     }
 
-    private  void looFoor(){
-        Rectangle korpus = new Rectangle(150,450);
-        korpus.setTranslateX(150);
-        korpus.setTranslateY(50);
-        korpus.setFill(Color.DARKGRAY);
-        pun.setTranslateX(220);
-        pun.setTranslateY(120);
-        kol.setTranslateX(220);
-        kol.setTranslateY(270);
-        roh.setTranslateX(220);
-        roh.setTranslateY(420);
-        pane.getChildren().addAll(korpus,pun,kol,roh);
 
-        startFoor();
+
+
+
+
+
+    public void looFoor(int pos){
+
+        if (pos == 1){
+            xAlg = 300;
+            laius = 80;
+            korgus = 200;
+            xPun = 340;
+            xKol = 340;
+            xRoh = 340;
+            yPun = 35;
+            yKol = 100;
+            yRoh = 165;
+         //   startFoor();
+        }
+        else if (pos == 3){
+            xAlg = 300;
+            yAlg = 290;
+            laius = 80;
+            korgus = 200;
+            xPun = 340;
+            xKol = 340;
+            xRoh = 340;
+            yPun = 455;
+            yKol = 390;
+            yRoh = 325;
+        //    startFoor();
+        }
+        else if (pos == 2){
+            xAlg = 400;
+            yAlg = 205;
+            laius = 200;
+            korgus = 80;
+            xPun = 565;
+            xKol = 500;
+            xRoh = 435;
+            yPun = 245;
+            yKol = 245;
+            yRoh = 245;
+         //   startFoorVastupidi();
+        }
+
+        else if (pos == 4){
+            xAlg = 80;
+            yAlg = 205;
+            laius = 200;
+            korgus = 80;
+            xPun = 115;
+            xKol = 180;
+            xRoh = 245;
+            yPun = 245;
+            yKol = 245;
+            yRoh = 245;
+       //     startFoorVastupidi();
+        }
+
+
+            Rectangle korpus = new Rectangle(laius,korgus);
+            korpus.setTranslateX(xAlg);
+        korpus.setTranslateY(yAlg);
+            korpus.setFill(Color.DARKGRAY);
+            pun.setTranslateX(xPun);
+            kol.setTranslateX(xKol);
+            roh.setTranslateX(xRoh);
+
+            pun.setTranslateY(yPun);
+            kol.setTranslateY(yKol);
+            roh.setTranslateY(yRoh);
+
+            pane.getChildren().addAll(korpus,pun,kol,roh);
+
+
+               // kollaneVilgub();
+
+
+
+
+
+
+
+
     }
 
 
@@ -106,8 +185,30 @@ public class Foor {
         flashGreen.play();
     }
 
+    public void kollaneVilgub(boolean vilgu){
+        Timeline flashYellow = new Timeline(
+
+                new KeyFrame(Duration.seconds(0.5), e -> {
+                    kol.setFill(Color.YELLOW);
+                }),
+                new KeyFrame(Duration.seconds(1.0), e -> {
+                    kol.setFill(Color.BLACK);
+                }),
+                new KeyFrame(Duration.seconds(1.0), e -> {
+                    kollaneVilgub(vilgu);
+                })
+        );
+        flashYellow.setCycleCount(1);
+        flashYellow.play();
+       if(vilgu == false){
+            flashYellow.stop();}
+
+
+
+    }
+
     //startFoor - управляет циклами смены цветов
-    private void startFoor (){
+    public void startFoor (){
         Timeline foor = new Timeline(
                 new KeyFrame(Duration.seconds(0), e-> {
                     vahetaPunaseks();
@@ -115,18 +216,48 @@ public class Foor {
                 new KeyFrame(Duration.seconds(7), e-> {
                     vahetaKollaseks();
                 }),
-                new KeyFrame(Duration.seconds(9), e-> {
+                new KeyFrame(Duration.seconds(9.5), e-> {
                     vahetaRoheliseks();
                 }),
-                new KeyFrame(Duration.seconds(16), e-> {
+                new KeyFrame(Duration.seconds(16.5), e-> {
                     vahetaKollaseks();
 
                 }),
-                new KeyFrame(Duration.seconds(18), e-> {
+                new KeyFrame(Duration.seconds(19), e-> {
                     startFoor();
 
                 })
         );foor.setCycleCount(1);
         foor.play();
     }
+
+    public void startFoorVastupidi (){
+        Timeline foor = new Timeline(
+                new KeyFrame(Duration.seconds(0), e-> {
+                    vahetaRoheliseks();
+                }),
+                new KeyFrame(Duration.seconds(7), e-> {
+                    vahetaKollaseks();
+                }),
+                new KeyFrame(Duration.seconds(9.5), e-> {
+                    vahetaPunaseks();
+                }),
+                new KeyFrame(Duration.seconds(16.5), e-> {
+                    vahetaKollaseks();
+
+                }),
+                new KeyFrame(Duration.seconds(19), e-> {
+                    startFoor();
+
+                })
+        );foor.setCycleCount(1);
+        foor.play();
+    }
+
+    public void kustuta (){
+        kollaneVilgub(true);
+    }
+
+
+
 }
